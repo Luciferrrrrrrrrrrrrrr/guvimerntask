@@ -1,0 +1,310 @@
+The ‘For’ Loop
+The For Loop comes first because of its simplicity and ease of use. It is a very user-friendly kind of loop that runs with a method of using a counter. 
+The value is first set with an appropriate condition, which is also called ‘initializing a loop’. Next, the terminal or final value is specified. The For Loop makes things really easy when you need to run a set of codes multiple times.
+The For Loop is further divided into:
+1. Using an array
+The following piece of code is a perfect example of how to use a for loop through an array. 
+var numbers = [ 10, 20, 30, 40, 50] 
+for (var i=0; i < numbers.length; i++) {
+   console.log(numbers[i])
+}
+Here, I have used all the numbers in the form of an array, then printed each of them in a console window. In the same way, you can make a loop through an array of strings.
+2. Making a loop through DOM elements
+The For loop can also be used to alter colors. Consider a situation where you want to choose a particular color for all the anchors of your page. In order to do so, use the following piece of code.
+ 
+var elements = document.querySelectorAll("a");
+for (var i=0; i<elements.length; i++) {
+   elements[i].style.color = "red";
+}
+When you look at the above code, things might not seem very clear. 
+I first used `document.querySelectorAll("a")` to get all of my anchors in the array format. Once that was done, the next step looped all the array and changed its color. 
+Here, we used the color red, but you may choose any color in the code and the anchors of your page will appear that particular color.
+
+The ‘For In’ Loop
+Another way of looping is the For In Loop. Unlike the For Loop, this loop won’t be using a counter. So this makes the whole process even more simple and hassle-free. In fact, the For In Loop is essentially a simplified version of the For Loop.
+
+The following are different ways of looping using the For In technique.
+1. Looping through an Object Property
+Here’s an example; you’ve got an object containing some properties and you need to look up each property and the value that it carries. Here’s how you would use the For In Loop to do so:
+var person = {
+   fname: "Nick",
+   lname: "Jonas",
+   age: 26
+}; 
+for (let x in person) {
+   console.log(x + ": "+ person[x])
+}
+Looping through an Object Property
+Looping Using JSON
+JSON stands for JavaScript Object Notation. It’s a light format for storing and transferring data from one place to another. So in looping, it is one of the most commonly used techniques for transporting data that is the array format or in attribute values. 
+Here’s an example that demonstrates the above concept.
+jsonData ={
+   one: [11, 12, 13, 14, 15],
+   two: [21, 22, 23],
+   three: [31, 32]
+}
+JavaScript Object Notation also consists of a root, namely, the jsonData. It further contains three nodes that are called, “one”, “two”, and “three”. 
+Here’s how you can withdraw a piece of information from JSON:
+var json = {
+   one: [11, 12, 13, 14, 15],
+   two: [21, 22, 23],
+   three: [31, 32]
+}
+};
+for(var key in json.jsonData) {
+   for (var key1 in json.jsonData[key]) {
+       console.log(json.jsonData[key][key1])
+   }
+}
+Above, I used two For In Loops to make use of JSON and extract information from it. One of those loops is the outer loop that runs three times. If you’re wondering why it needs to run three times, that’s because it has to cover the above-mentioned nodes.
+
+The second loop is the inner loop which is meant to cover all the internal values. These internal values are those which are inside the three nodes. Once you run the code, you will get these kinds of results:
+
+Inner loop Output
+JSON Explained
+If we go further in depth, there are a few more things you need to know about JSON.  The code that we just ran can also be expressed by including ‘[]’ to contain the above three nodes.
+
+Here’s how it’s done:
+
+jsonData:  [
+   one: [11, 12, 13, 14, 15],
+   two: [21, 22, 23],
+   three: [31, 32]
+]
+Then, in the following piece of code, a blend of the two looping techniques of For and For In are used to withdraw all the information from JSON.
+
+var json = {
+   jsonData:  [
+       {one: [11, 12, 13, 14, 15]},
+       {two: [21, 22, 23]},
+       {three: [31, 32]}
+   ]
+}; 
+for (var i=0; i<json.jsonData.length; i++) {
+   for (var key in json.jsonData[i]) {
+       for (var j= 0; j<json.jsonData[i][key].length; j++) {
+           console.log(json.jsonData[i][key][j])
+       }
+   }
+}
+The ForEach() Loop
+This method is used for looping through an array element. Here’s an example of this:
+var names = ["jerry", "tom", "pluto", "micky", "mini"];
+names.forEach(function1);
+function function1(currentValue, index) {
+   console.log("Index in array is: "+index + " ::  Value is: "+currentValue);
+}
+
+Looping through JSON in more detail with examples
+Example 1:
+We're making a list of books and we enter the title as “Lord of the Rings” and the year as “1994“and the count of pages as “3000”. Similarly, a large number of objects can be created and once it’s done, we will have a large database:
+
+var books = [
+   {
+       title: "Lord of the Rings",
+       year: 1994,
+       pages: 3000
+   },
+   {
+       title: "1984",
+       year: 1984,
+       pages: 2000
+   },
+   {
+       title: "Art of war",
+       year: 2000,
+       pages: 5000
+   }
+]
+
+Now different things can be done with this database.
+For example;
+alert(books.length);
+When we run this, the browser will display three. Essentially, with this, we checked that there are three objects in this array.
+Keep in mind that in JSON, you need to separate your objects with a comma as you can see in the example.
+Example 2
+In this example, we are looping within the array.
+for (i=0; i<books.length; i++){
+   document.write(
+       books.title + "<br />"
+   );
+}
+Once, I run this, all of the titles in my database would be displayed.
+
+The For Of Loop
+The JavaScript for of statement loops through the values of an iterable object.
+It lets you loop over iterable data structures such as Arrays, Strings, Maps, NodeLists, and more:
+Syntax:
+for (variable of iterable) {
+  // code block to be executed
+}Looping over an Array
+Example
+const cars = ["BMW", "Volvo", "Mini"];
+
+let text = "";
+for (let x of cars) {
+  text += x;
+}
+Looping over a String
+Example
+let language = "JavaScript";
+
+let text = "";
+for (let x of language) {
+text += x;
+}
+
+JavaScript: window, document and screen
+Window
+The JavaScript window object sits at the top of the JavaScript Object hierarchy and represents the browser window. The window object is supported by all browsers. All global JavaScript objects , functions, and variables automatically become members of the window object. The window is the first thing that gets loaded into the browser . This window object has the majority of the properties like length, innerWidth, innerHeight, name, if it has been closed, its parents, and more.
+The window object represents the current browsing context . It holds things like window.location, window.history, window.screen, window.status, or the window.document . Each browser tab has its own top-level window object. Each of these windows gets its own separate global object. window.window always refers to window, but window.parent and window.top might refer to enclosing windows, giving access to other execution contexts. Moreover, the window property of a window object points to the window object itself. So the following ststements all return the same window object:
+ 
+Document
+The Document interface represents any web page loaded in the browser and serves as an entry point into the web page's content, which is the DOM tree. When an HTML document is loaded into a web browser , it becomes a document object. It is the root node of the HTML document. The document actually gets loaded inside the window object and has properties available to it like title, URL, cookie, etc. HTML documents, served with the "text/html" content type, also implement the HTMLDocument interface, whereas XML and SVG documents implement the XMLDocument interface.
+Screen
+Screen is a small information object about physical screen dimensions . It can be used to display screen width, height, colorDepth, pixelDepth etc. It is not mandatory to write window prefix with screen object. It can be written without window prefix.
+Properties:
+  JavaScript: window, document and screen
+Window
+The JavaScript window object sits at the top of the JavaScript Object hierarchy and represents the browser window. The window object is supported by all browsers. All global JavaScript objects , functions, and variables automatically become members of the window object. The window is the first thing that gets loaded into the browser . This window object has the majority of the properties like length, innerWidth, innerHeight, name, if it has been closed, its parents, and more.
+
+The window object represents the current browsing context . It holds things like window.location, window.history, window.screen, window.status, or the window.document . Each browser tab has its own top-level window object. Each of these windows gets its own separate global object. window.window always refers to window, but window.parent and window.top might refer to enclosing windows, giving access to other execution contexts. Moreover, the window property of a window object points to the window object itself. So the following ststements all return the same window object:
+
+ 
+window.window
+window.window.window
+window.window.window.window
+...
+
+Document
+The Document interface represents any web page loaded in the browser and serves as an entry point into the web page's content, which is the DOM tree. When an HTML document is loaded into a web browser , it becomes a document object. It is the root node of the HTML document. The document actually gets loaded inside the window object and has properties available to it like title, URL, cookie, etc. HTML documents, served with the "text/html" content type, also implement the HTMLDocument interface, whereas XML and SVG documents implement the XMLDocument interface.
+
+Screen
+Screen is a small information object about physical screen dimensions . It can be used to display screen width, height, colorDepth, pixelDepth etc. It is not mandatory to write window prefix with screen object. It can be written without window prefix.
+
+Properties:
+ 
+screen.width
+screen.height
+screen.availWidth
+screen.availHeight
+screen.colorDepth
+screen.pixelDepth
+
+JSon – Sampl {
+  "basics": {
+    "name": "Anbazhagan Gunasekaran",
+    "label": "xxx",
+    "picture": "xxx",
+    "email": "anbuachu456@gmail.com",
+    "phone": "+91124567890",
+    "degree": "B.Sc computer science",
+    "website": "anbazhagangunasekaran.com",
+    "summary": " I am passionate about my work",
+    "location": {
+      "address": "No.5/8 samiyar thottam,",
+      "postalCode": "600049",
+      "city": "Chennai",
+      "countryCode": "+91",
+      "region": "south"
+    },
+    "profiles": [
+      {
+        "network": "A social media or other profile that you would like to include (e.g. LinkedIn, Twitter)",
+        "username": "Luciferrrrrrrrrr",
+        "url": "A URL to your user profile page"
+      }
+    ]
+  },
+  "work": [
+    {
+      "company": "Anbazhagan G",
+      "position": "Quality Analyst",
+      "website": "Anbazhagan.gunasekaran.com",
+      "startDate": "06/01/2016",
+      "endDate": "till",
+      "summary": "A one-sentence to one-paragraph summary of this employer or position",
+      "highlights": [
+1.	I am passionate about my work. ...
+2.	I am ambitious and driven. ...
+3.	I am highly organised. ...
+4.	I'm a people person. ...
+5.	I'm a natural leader. ...
+6.	I am results oriented. ...
+7.	I am an excellent communicator.
+      ]
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "CTS",
+      "position": "organizer",
+      "website": "Anbazhagan.lucifer.com",
+      "startDate": "06/01/2018",
+      "endDate": "till",
+      "summary": "A one-sentence to one-paragraph summary of this employer or position",
+      "highlights": [
+1.	I am passionate about my work. ...
+2.	I am ambitious and driven. ...
+3.	I am highly organised. ...
+4.	I'm a people person. ...
+5.	I'm a natural leader. ...
+6.	I am results oriented. ...
+7.	I am an excellent communicator.      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Your school name",
+      "area": "Your area of study or degree earned",
+      "studyType": "",
+      "startDate": "Your start date, in YYYY-MM-DD format",
+      "endDate": "Your completion date, in YYYY-MM-DD format",
+      "gpa": "",
+      "courses": [
+        ""
+      ]
+    }
+  ],
+  "awards": [
+    {
+      "title": "Your award title",
+      "date": "Your date, in YYYY-MM-DD format you received the award",
+      "awarder": "Your award given by",
+      "summary": "A one-sentence to one-paragraph overview of this award"
+    }
+  ],
+  "publications": [
+    {
+      "name": "Your publication title",
+      "publisher": "Publisher name",
+      "releaseDate": "Publication date, in YYYY-MM-DD format",
+      "website": "The website URL for this publisher or book",
+      "summary": "A one-sentence to one-paragraph overview of this publication"      
+    }
+  ],
+  "skills": [
+    {
+      "name": "A category of job skills (e.g. 'Programming Languages')",
+      "level": "",
+      "keywords": [
+        "Keywords under this category (e.g. 'Java', 'C++', etc)"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "Language name",
+      "fluency": "Your language fluency"
+    }
+  ],
+  "interests": [
+    {
+      "name": "A category of interests (e.g. 'Sports')",
+      "keywords": [
+        "Keywords under this category (e.g. 'Cricket', 'Football', 'Golf')"
+      ]
+    }
+  ]
+}
+
