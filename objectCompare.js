@@ -17,6 +17,6 @@ if(Object.keys(obj1).length==Object.keys(obj2).length){
 else {
     flag=false;
 }
-console.log("is object equal "+flag);
+console.log("is object equal to "+flag);
 
 
